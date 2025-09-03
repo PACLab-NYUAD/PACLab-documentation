@@ -15,7 +15,7 @@ Team
    :caption: Lab Overview
    :hidden:
 
-   1-lab-overview/0-neurowaves-lab-presentation
+   1-lab-overview/0-paclab-overview
 
 
 .. toctree::
@@ -23,5 +23,5 @@ Team
    :caption: Experiments
    :hidden:
 
-   2-meg-kit-system/1-technology-overview
+   2-experiments/0-experiments
 
