@@ -36,19 +36,8 @@ master_doc = 'index'
 
 # -- General configuration
 
-extensions = [
-    "sphinx.ext.duration",
-    "sphinx.ext.doctest",
-    "sphinx.ext.autodoc",
-    "sphinx.ext.autosummary",
-    "sphinx.ext.intersphinx",
-    "nbsphinx",
-    "sphinx_gallery.load_style",
-    "sphinx.ext.mathjax",
-    "sphinx_togglebutton",
-    "sphinx_panels",
-    "sphinxcontrib.mermaid",
-]
+
+
 
 
 
