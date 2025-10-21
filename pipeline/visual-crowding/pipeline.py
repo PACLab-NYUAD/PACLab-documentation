@@ -20,7 +20,8 @@ from mpl_toolkits.mplot3d import Axes3D
 import pyvista as pv
 import numpy as np
 
-mne.viz.set_3d_backend('pyvistaqt')  # force PyVista Qt backend for 3D plots
+
+
 
 
 # Option to add sensor names as labels
@@ -40,7 +41,7 @@ fig = mne.viz.plot_sensors(raw.info, kind="3d")
 
 # Get the current 3D Axes from the figure
 ax = fig.gca()
-
+fig.savefig('sensors.png')
 plt.show()
 
 
@@ -48,24 +49,15 @@ fig = mne.viz.plot_alignment(raw.info,
                              show_axes=True,
                              dig=True,      # show digitized points
                              eeg=False,     # if you only have MEG
-                             meg='helmet',
+                             meg=["helmet", "sensors"],
 
                              )  # optional: show head surface
-
-
-# ---------- Customize sensors ----------
-# Extract MEG sensor positions
-# Extract MEG sensor locations
-meg_locs = np.array([ch['loc'][:3] for ch in raw.info['chs']
-                     if ch['kind'] == mne.io.constants.FIFF.FIFFV_MEG_CH])
-
-# ---------- Plot sensors as visible points ----------
-# Create a PyVista point cloud
-points = pv.PolyData(meg_locs)
-fig.plotter.add_points(points, color='red', point_size=15, render_points_as_spheres=True)
 
 
 # ---------- Show and save ----------
 fig.plotter.show()
 fig.plotter.screenshot('headshape_sensors.png')
+pl = pv.Plotter()
+pl.show(auto_close=False)
+
 print(f"Figure saved to")
