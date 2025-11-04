@@ -37,7 +37,7 @@ raw = mne.io.read_raw_fif(PATH_FILE, preload=False)
 # Plot the sensors and retrieve the Matplotlib figure
 # Set show_names=False to prevent default labeling
 fig = mne.viz.plot_sensors(raw.info, kind="3d")
-#fig = mne.viz.plot_sensors(raw.info, kind='3d', show_names=False, show=False)
+fig = mne.viz.plot_sensors(raw.info, kind='3d', show_names=True, show=True)
 
 # Get the current 3D Axes from the figure
 ax = fig.gca()
