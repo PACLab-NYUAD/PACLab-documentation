@@ -26,16 +26,16 @@ Team
    2-experiments/0-experiments
 
 
-****
+********
 Projects
-****
+********
 
 Welcome to the PACLab project portfolio.
 Here you will find documentation for each major project we have undertaken.
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Our Projects
+    :maxdepth: 1
+    :caption: Our Projects
 
-      projects/arabic_visual_crowding
+    projects/arabic_visual_crowding
 
