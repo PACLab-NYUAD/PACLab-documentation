@@ -1,7 +1,12 @@
+# %% Import packages
 
+import os
 import mne
-
+import pyvista
 import matplotlib.pyplot as plt
+
+# Set PyVista backend for inline rendering in Jupyter/Interactive Window
+pyvista.set_jupyter_backend('static')
 
 # Define the file path
 PATH_FILE = r"/Users/ma6895/Downloads/PACLab/Arabic Visual Crowding/sub-001/derivatives/sub-001_task-visualcrowdpreview_proc-CALMnoisereduction_meg-raw.fif"
@@ -11,14 +16,20 @@ TMAX_ALL=1
 # Load the raw data
 raw = mne.io.read_raw_fif(PATH_FILE, preload=True)
 
-# Filtering
+# %% Filtering
 raw.notch_filter(freqs=[50, 100, 150])
 raw.filter(l_freq=1, h_freq=100, fir_design='firwin')
 
 
-# Plot sensors:
+
+
+# %% Plot sensors:
 
 fig = mne.viz.plot_sensors(raw.info, kind="3d", show_names=True)
+
+# Save the 3D sensor plot as PNG in the same folder as this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+fig.savefig(os.path.join(SCRIPT_DIR, "sensors_3d.png"), dpi=150, bbox_inches="tight")
 plt.show()
 
 

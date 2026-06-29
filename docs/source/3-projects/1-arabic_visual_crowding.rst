@@ -32,6 +32,33 @@ Highlights
 
 -
 
+Pipeline
+--------
+
+**Current Progress**
+Based on the initial scripts in `pipeline/visual-crowding/`, the following steps have been implemented for individual subject analysis:
+
+1. **Data Loading & Filtering**: 
+   - Loading raw MEG data (`.fif` files) after initial CALM noise reduction.
+   - Applying notch filters (50, 100, 150 Hz) and a bandpass filter (1-100 Hz) to remove environmental and high-frequency noise.
+2. **Co-registration & Visualization**: 
+   - Generating 3D plots of MEG sensors and aligning them with the participant's digitized headshape to verify sensor positions.
+3. **Epoching**: 
+   - Extracting trials based on event triggers (`.eve` files).
+   - Defining epochs from -200 ms to 1000 ms relative to stimulus onset, with baseline correction applied (-200 ms to 0 ms).
+4. **Evoked Responses (ERPs)**: 
+   - Computing average evoked fields across different experimental conditions.
+   - Visualizing specific sensor activity, including occipital sensors (for visual responses) and motor sensors (locked to button-press activity).
+
+**Next Steps**
+To advance the MEG analysis pipeline, the following stages should be considered:
+
+1. **Artifact Rejection**: Implement Independent Component Analysis (ICA) or Signal Space Projection (SSP) to systematically clean heartbeat (ECG) and eye-movement (EOG) artifacts.
+2. **Time-Frequency Analysis**: Examine induced oscillatory activity (e.g., changes in alpha/gamma band power) to understand the dynamics of the crowding and preview effects.
+3. **Source Localization**: Co-register MEG data with structural MRI scans to reconstruct the neural activity in source space, identifying the specific cortical regions involved.
+4. **Group-Level Statistics**: Generalize the single-subject pipeline to handle multiple subjects and apply robust statistical methods (e.g., cluster-based permutation tests) across conditions.
+5. **Multivariate Pattern Analysis (MVPA)**: Implement decoding models to investigate how the neural representations of Arabic words change under different crowding and preview conditions.
+
 Team
 ----
 
