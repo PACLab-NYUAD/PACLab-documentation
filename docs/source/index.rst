@@ -37,5 +37,5 @@ Here you will find documentation for each major project we have undertaken.
     :maxdepth: 1
     :caption: Our Projects
 
-    projects/arabic_visual_crowding
+    3-projects/1-arabic_visual_crowding
 

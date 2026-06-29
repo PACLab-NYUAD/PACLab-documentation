@@ -1,3 +1,4 @@
+# %% Import packages
 
 import mne
 
@@ -16,7 +17,9 @@ raw.notch_filter(freqs=[50, 100, 150])
 raw.filter(l_freq=1, h_freq=100, fir_design='firwin')
 
 
-# Plot sensors:
+
+
+# %% Plot sensors:
 
 fig = mne.viz.plot_sensors(raw.info, kind="3d", show_names=True)
 plt.show()
