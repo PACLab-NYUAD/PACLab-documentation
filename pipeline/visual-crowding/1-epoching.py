@@ -28,8 +28,8 @@ raw.filter(l_freq=1, h_freq=100, fir_design='firwin')
 fig = mne.viz.plot_sensors(raw.info, kind="3d", show_names=True)
 
 # Save the 3D sensor plot as PNG in the same folder as this script
-
-fig.savefig("sensors_3d.png", dpi=150, bbox_inches="tight")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+fig.savefig(os.path.join(SCRIPT_DIR, "sensors_3d.png"), dpi=150, bbox_inches="tight")
 plt.show()
 
 
